@@ -1,80 +1,96 @@
 # [返回主页](https://github.com/yisainan/web-interview/blob/master/README.md)
 
-<b><details><summary>1.常见的浏览器内核有哪些？</summary></b> 
+<b><details><summary>1.结构体与类的区别</summary></b> 
 
-答案：
+* 分别以struct和class命名
 
-Trident 内核：IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称 MSHTML]
-
-Gecko 内核：Netscape6 及以上版本，FF,MozillaSuite/SeaMonkey 等
-
-Presto 内核：Opera7 及以上。 [Opera 内核原为：Presto，现为：Blink;]
-
-Webkit 内核：Safari,Chrome 等。 [ Chrome 的：Blink（WebKit 的分支）]
-
-[参与互动](https://github.com/yisainan/web-interview/issues/328)
+* 成员访问控制有差异，默认情况下，结构体的成员是public，类的成员是private
 
 </details>
 
-<b><details><summary>2.如何实现浏览器内多个标签页之间的通信?</summary></b> 
+<b><details><summary>2.C++的特性?</summary></b> 
 
-答案：调用 localstorge、cookies 等本地存储方式，注意sessionstorge不可以哦
+> 类与对象
+>> 类是抽象的，对象是类的实例
 
-[参与互动](https://github.com/yisainan/web-interview/issues/329)
+> 构造函数
+>> 
+- 构造函数的名字和类名相同，没有返回值
+- 构造函数用来对类中的成员变量进行初始化
+
+> 析构函数
+>>
+- 释放对象所占有的资源
+- 反向的构造函数，不允许有返回值
+- 不能带参数，一个类中有且只有一个析构函数
+
+> 函数的重载 overload
+>>
+- 有多个构造函数，函数名一样，只是参数的类型和个数不一样
+- 只有函数的返回类型不同是不能构成函数的重载
+
+> this指针
+>>
+- 是一个隐含的指针
+- 指向对象本身，代表对象的地址
+
+> 类的继承
+>>
+- 父类和子类，子类除了自己的成员变量和方法外，还可以继承父类的成员变量和方法
+- public：可以在任何地方被访问
+- protected：只能在该类及其子类中访问
+- Private：只能在该类中访问
+
+> 多重继承
+>>
+- 一个类可以从多个基类中派生
+- 多个基类中若有相同的变量和方法，可能会带来麻烦
+
+> 虚函数与多态
+>>在基类的函数前加上virtual关键字，在派生类中重写该函数，运行时将会根据对象的实际类型类调用相应的函数。如果对象类型是派生类，就调用派生类的函数；如果对象类型是基类，就调用基类的函数。
+
+> 纯虚函数
+>>
+- 不具体实现的虚函数
+- 含有纯虚函数的类叫抽象类，这种类不能声明对象，只是作为基类为派生类服务
+- 派生类中必须完全实现基类的纯虚函数，否则，派生类也变成了抽象类，不能实例化对象。
+
+> 函数的覆盖
+>>
+- 基类函数必须是虚函数
+- 发生覆盖的两个函数要分别位于派生类和基类中
+- 函数名称与参数必须完全相同
+- 覆盖总是和多态关联在一起
+
+> 函数的隐藏
+>>
+- 派生类的函数与基类函数完全相同，即函数名和参数都相同，只是基类函数没有使用virtual关键字，此时基类函数将被隐藏
+- 派生类函数与基类函数同名，但参数不同，不管基类的函数是否有virtual关键字，基类函数都将被隐藏
+
+> 引用和指针变量
+>>
+- 引用就是一个变量的别名
+- 指针是地址，指针变量要存储地址值，可以修改指针变量所保存的地址值，从而指向其他的内存
 
 </details>
 
-<b><details><summary>3.浏览器的渲染过程</summary></b> 
-
-答案：
-
-1. 解析HTML生成DOM树。
-2. 解析CSS生成CSSOM规则树。
-3. 将DOM树与CSSOM规则树合并在一起生成渲染树。
-4. 遍历渲染树开始布局，计算每个节点的位置大小信息。
-5. 将渲染树每个节点绘制到屏幕。
-
-解析：
-
-* 使用 HTML 创建文档对象模型（DOM）
-* 使用 CSS 创建 CSS 对象模型（CSSOM）
-* 基于 DOM 和 CSSOM 执行脚本（Scripts）
-* 合并 DOM 和 CSSOM 形成渲染树（Render Tree）
-* 使用渲染树布局（Layout）所有元素
-* 渲染（Paint）所有元素
-
-[参考](https://jinlong.github.io/2017/05/08/optimising-the-front-end-for-the-browser/)
-
-[参与互动](https://github.com/yisainan/web-interview/issues/330)
+<b><details><summary>3.Const char* 和 char* const</summary></b> 
+- Const char* 指向常量的指针
+- Char* const 指针常量
 
 </details>
 
-<b><details><summary>4.为何会出现浏览器兼容问题</summary></b> 
+<b><details><summary>4.进程间通信方式</summary></b> 
+- 剪贴板
+- 匿名管道
+- 命名管道
+- 邮槽
 
-答案：
+</details>
 
-* 同一产品，版本越老 bug 越多
-* 同一产品，版本越新，功能越多
-* 不同产品，不同标准，不同实现方式
-
-### 处理兼容问题的思路
-1. 要不要做
-* 产品的角度（产品的受众、受众的浏览器比例、效果优先还是基本功能优先）
-* 成本的角度 (有无必要做某件事)
-
-2.做到什么程度
-* 让哪些浏览器支持哪些效果
-
-3..如何做
-* 根据兼容需求选择技术框架/库(jquery)
-* 根据兼容需求选择兼容工具(html5shiv.js、respond.js、css reset、normalize.css、Modernizr)
-* 条件注释、CSS Hack、js 能力检测做一些修补
-
-* 渐进增强(progressive enhancement): 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验
-* 优雅降级 (graceful degradation): 一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。
-
-解析：[参考](https://github.com/jirengu/frontend-interview/issues/35)
-
-[参与互动](https://github.com/yisainan/web-interview/issues/331)
+<b><details><summary>5.线程同步</summary></b> 
+- 利用事件对象实现线程同步
+- 利用关键代码段实现线程同步
+- 线程锁
 
 </details>
