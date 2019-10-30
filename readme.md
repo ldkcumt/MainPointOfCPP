@@ -94,3 +94,10 @@
 - 线程锁
 
 </details>
+
+<b><details><summary>6.测试GIT</summary></b> 
+- 利用事件对象实现线程同步
+- 利用关键代码段实现线程同步
+- 线程锁
+
+</details>
