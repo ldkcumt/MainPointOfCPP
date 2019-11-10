@@ -95,9 +95,45 @@
 
 </details>
 
-<b><details><summary>6.测试PUSH</summary></b> 
-- 利用事件对象实现线程同步
-- 利用关键代码段实现线程同步
-- 线程锁
+<b><details><summary>6.指针</summary></b> 
+- 一个整型数
+
+    int a;
+
+- 一个指向整型数的指针（A pointer to an integer）
+
+    int *a;
+
+- 一个指向指针的的指针，它指向的指针是指向一个整型数( A pointer to a pointer to an intege)
+
+    int **a;
+
+- 一个有10个整型数的数组( An array of 10 integers) 
+
+    int a[10];
+
+- 一个有10个指针的数组，该指针是指向一个整型数的。(An array of 10 pointers to integers) 
+
+    int *a[10];
+
+- 一个指向有10个整型数数组的指针( A pointer to an array of 10 integers)
+
+    int (*a)[10];
+
+- 一个指向函数的指针，该函数有一个整型参数并返回一个整型数(A pointer to a function that takes an integer as an argument and returns an integer) 
+
+    int (*a)(int);
+
+- 一个有10个指针的数组，该指针指向一个函数，该函数有一个整型参数并返回一个整型数( An array of ten pointers to functions that take an integer argument and return an integer )
+
+    int (*a[10])(int)
+
+</details>
+
+# [测试题]
+
+<b><details><summary>一个指向整型数的指针</summary></b> 
+
+    分别以struct和class命名
 
 </details>
