@@ -256,10 +256,46 @@
 
 </details>
 
+<b><details><summary>static类成员, static类成员函数</summary></b> 
+
+>static类成员特性
+
+- static类成员不像普通的类数据成员，static类数据成员独立于一切类对象存在
+- static类数据成员是与类关联的，但不与该类定义的对象有任何关系 
+- static不会像普通类数据成员一样每一个类对象都有一份，全部类对象是共享一个static类成员的
+- 若A类对象修改了static成员为1，那么B对象对应的static类对象成员的值也会是1
+- static修饰的变量先于对象存在，所以static修饰的变量要在类外初始化
+
+>static类成员优点
+
+- 用static修饰的成员变量在对象中是不占内存的，因为他不是跟对象一起在堆或者栈中生成，而是在静态存储区生成的。
+
+>static类成员函数
+
+- 由于static修饰的类成员属于类，不属于对象，因此static类成员函数是没有this指针的。而this指针是指向对象本身的，所以static类成员函数不能访问非static的类成员，只能访问static修饰的类成员。
+
+</details>
+
+<b><details><summary>malloc的用法和意义</summary></b> 
+
+- 中文名称：动态内存分配
+- malloc函数是一种分配长度为num_bytes字节的内存块的函数，可以向系统申请分配指定size个字节的内存空间
+- 当无法知道内存具体位置的时候，想要绑定真正的内存空间，就需要用到动态的分配内存。
+- 返回类型是void*类型，表示未确定类型的指针，可以通过类型转换强制转换为任何其它类型的指针
+
+</details>
+
+<b><details><summary>malloc函数与new的区别</summary></b>
+
+- malloc是libc里面实现的一个函数，如果没有包含stdlib.h，编译时会报错；如果运行平台上没有libc，运行时会报错
+- new是C++的关键字，不是函数，不依赖于头文件，编译器可以把new编译成目标代码
+- new返回指定类型的指针，并且可以自动计算所需要大小；而malloc则必须由我们计算字节数，并且在返回后强行转换为实际类型的指针
+- malloc只管分配内存，并不能对所得的内存进行初始化，所以得到的一片新内存中，其值将是随机的
+
+</details>
+
 # [测试题]
 
 <b><details><summary>一个指向整型数的指针</summary></b> 
-
-    分别以struct和class命名
 
 </details>
