@@ -294,6 +294,13 @@
 
 </details>
 
+<b><details><summary>UDP、TCP分别是什么，有什么区别？</summary></b>
+
+- UDP，面向无连接。没有服务端和客户端的概念，只是发送端和接收端
+- TCP，面向连接。区分服务端和客户端
+
+</details>
+
 # [测试题]
 
 <b><details><summary>一个指向整型数的指针</summary></b> 
